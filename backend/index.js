@@ -20,6 +20,8 @@ app.use(urlRoutes);
 
 app.use(errorHandler);
 
+app.get('/api/', (req, res) => res.send("shortr API"));
+
 
 
 const PORT = process.env.PORT || 3000;
