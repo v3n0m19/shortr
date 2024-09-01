@@ -3,11 +3,13 @@ const dotenv = require('dotenv');
 const urlRoutes = require('./routes/urlRoutes');
 const errorHandler = require('./middleware/errorHandler');
 const redisClient = require('./config/redisClient');
+const cors = require('cors');
 
 dotenv.config({ path: '../.env' });
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 redisClient.connect().then(() => {
     console.log('Connected to Redis');
